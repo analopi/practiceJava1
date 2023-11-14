@@ -3,11 +3,35 @@ package exception;
 public class First {
 
     public static void main(String[] args) {
-        divideByZero();
-        accessToUnexistingElement();
-        playWithNullPointer();
-        tryToCreateFunnyArray();
-        searchSomethingOutString();
+        try {
+            divideByZero();
+        } catch (ArithmeticException e) {
+            System.out.println("Поймано исключение при делении на ноль: " + e.getMessage());
+        }
+
+        try {
+            accessToUnexistingElement();
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Поймано исключение при доступе к несуществующему элементу массива: " + e.getMessage());
+        }
+
+        try {
+            playWithNullPointer();
+        } catch (NullPointerException e) {
+            System.out.println("Поймано исключение при работе с null-указателем: " + e.getMessage());
+        }
+
+        try {
+            tryToCreateFunnyArray();
+        } catch (NegativeArraySizeException e) {
+            System.out.println("Поймано исключение при попытке создания массива с отрицательным размером: " + e.getMessage());
+        }
+
+        try {
+            searchSomethingOutString();
+        } catch (StringIndexOutOfBoundsException e) {
+            System.out.println("Поймано исключение при попытке доступа к символу с недопустимым индексом: " + e.getMessage());
+        }
         System.out.println("Ура! Меня снова печают");
     }
 
